@@ -1,3 +1,14 @@
+<?php
+$con=mysqli_connect("localhost","root","","social");
+if (mysqli_connect_errno()){
+  echo "faild to connect:".mysqli_connect_errno();
+}
+
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +27,7 @@
     <br>
     <input type="password" name="reg_password2" placeholder="confirm password" required>
     <br>
-    <input type="submit" name="reg_button" value="Registor" required>
+    <input type="submit" name="reg_button" value="Register" required>
   </form>  
 </body>
 </html>
