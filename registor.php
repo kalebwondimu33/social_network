@@ -3,7 +3,40 @@ $con=mysqli_connect("localhost","root","","social");
 if (mysqli_connect_errno()){
   echo "faild to connect:".mysqli_connect_errno();
 }
+//declear variable
+$fname="";
+$lname="";
+$email="";
+$email2="";
+$password="";
+$password2="";
+$date="";
+$error_array=""; //holds error message
+if (isset($_POST['reg_button'])){
+  //firstname
+  $fname=strip_tags($_POST['reg_fname']);//remove tags
+  $fname=str_replace(' ','',$fname);//remove space
+  $fname=ucfirst(strtolower($fname));//convert to lowercase and capitalize the first letter
+  //lastname
+  $lname=strip_tags($_POST['reg_lname']);
+  $lname=str_replace(' ','',$lname);
+  $lname=ucfirst(strtolower($lname));
+  //email
+  $email=strip_tags($_POST['reg_email']);
+  $email=str_replace(' ','',$email);
+  $email=ucfirst(strtolower($email));
+  //email2
+  $email2=strip_tags($_POST['reg_email2']);
+  $email2=str_replace(' ','',$email2);
+  $email2=ucfirst(strtolower($email2));
+  //password
+  $password=strip_tags($_POST['reg_password']);
+  $password2=strip_tags($_POST['reg_password2']);
+  //date
+  $date=date("Y-m-d");//current date
 
+
+}
 ?>
 
 
@@ -22,6 +55,8 @@ if (mysqli_connect_errno()){
     <input type="text" name="reg_lname" placeholder="Last Name" required>
     <br>
     <input type="email" name="reg_email" placeholder="email" required>
+    <br>
+    <input type="email" name="reg_email2" placeholder="confirm email" required>
     <br>
     <input type="password" name="reg_password" placeholder="Enter password" required>
     <br>
