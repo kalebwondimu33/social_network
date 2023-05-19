@@ -40,6 +40,12 @@ if (isset($_POST['reg_button'])){
        //checking if the email is invalid format
        if(filter_var($email,FILTER_VALIDATE_EMAIL)){
         $email=filter_var($email,FILTER_VALIDATE_EMAIL);
+        //check if email already exist
+        $email_check=mysqli_query($con,"SELECT email FROM users WHERE email='$email' ");
+        $num_rows=mysqli_num_rows($email_check);
+        if ($num_rows>0){
+          echo "Email already in use";
+        }
        }
        else{
         echo "Invalid format";
