@@ -35,6 +35,20 @@ if (isset($_POST['reg_button'])){
   //date
   $date=date("Y-m-d");//current date
 
+  //checking the email is match
+  if ($email==$email2){
+       //checking if the email is invalid format
+       if(filter_var($email,FILTER_VALIDATE_EMAIL)){
+        $email=filter_var($email,FILTER_VALIDATE_EMAIL);
+       }
+       else{
+        echo "Invalid format";
+       }
+  }
+  else{
+      echo "Emails don't match";
+  }
+
 
 }
 ?>
