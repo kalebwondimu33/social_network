@@ -89,6 +89,14 @@ if (isset($_POST['reg_button'])){
       $check_username_query=mysqli_query($con,"SELECT username FROM users WHERE username='$username' ");
     }
   }
+  //profile picture assignment
+  $random=rand(1,2);
+  if ($random==1){
+    $profile_pic="assets\images\profile_pic\default/head_deep_blue.png";
+  }
+  elseif($random==2){
+    $profile_pic="assets\images\profile_pic\default/head_green_sea.png";
+  }
 
 
 }
