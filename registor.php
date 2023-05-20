@@ -76,6 +76,19 @@ if (isset($_POST['reg_button'])){
   if (strlen($password)>30 || strlen($password)<5){
     array_push($error_array, "your password must be betwee 5 and 30<br>");
   }
+  if(empty($error_array)){
+    $password=md5($password);//encript the password before sending to the database
+    //generate username by concatentaing first name and last name
+    $username=strtolower($fname." " .$lname);
+    $check_username_query=mysqli_query($con,"SELECT username FROM users WHERE username='$username' ");
+    $i=0;
+    //if username exist add number to username
+    while(mysqli_num_rows($check_username_query)!=0){
+      $i++;
+      $username=$username."_".$i;
+      $check_username_query=mysqli_query($con,"SELECT username FROM users WHERE username='$username' ");
+    }
+  }
 
 
 }
