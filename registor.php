@@ -97,6 +97,7 @@ if (isset($_POST['reg_button'])){
   elseif($random==2){
     $profile_pic="assets\images\profile_pic\default/head_green_sea.png";
   }
+  $query=mysqli_query($con,"INSERT INTO users VALUES('','$fname','$lname','$username','$email','$password','$date','$profile_pic','0','0','no',',')");
 
 
 }
