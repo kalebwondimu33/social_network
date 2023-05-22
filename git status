@@ -1,0 +1,59 @@
+[33mcommit 19d491e7efb1f88fa7b65723f0e92f29ea3a3690[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: kaleb wondimu <kalebwondimu33@gmail.com>
+Date:   Sat May 20 09:32:14 2023 +0300
+
+    getting unique username
+
+[33mcommit 09caadf48fa28887780e337c6da623894a7fff4c[m
+Author: kaleb wondimu <kalebwondimu33@gmail.com>
+Date:   Fri May 19 17:01:30 2023 +0300
+
+    storing error message to the array
+
+[33mcommit 176f5878696587c74e03e03c1a6ffa2d915a1421[m
+Author: kaleb wondimu <kalebwondimu33@gmail.com>
+Date:   Fri May 19 15:59:29 2023 +0300
+
+    storing values in session variables
+
+[33mcommit b1abd2476bb9508f5b2be07d0b46242df6628756[m
+Author: kaleb wondimu <kalebwondimu33@gmail.com>
+Date:   Fri May 19 15:28:30 2023 +0300
+
+    validating the remaing values
+
+[33mcommit 57ac56eb9b69f4fca68d8605813ea69d7fecbb6a[m
+Author: kaleb wondimu <kalebwondimu33@gmail.com>
+Date:   Fri May 19 15:09:39 2023 +0300
+
+    checking if the email is already in use
+
+[33mcommit 7d74edc4043f41daf3ed043fe4aa0ec127fd3a51[m
+Author: kaleb wondimu <kalebwondimu33@gmail.com>
+Date:   Fri May 19 14:40:56 2023 +0300
+
+    checking email matches and it is in correct format
+
+[33mcommit 1bb264e7888d8a4fb9ad1797cf3a827e7251fcf4[m
+Author: kaleb wondimu <kalebwondimu33@gmail.com>
+Date:   Fri May 19 14:24:50 2023 +0300
+
+    getting value from the form
+
+[33mcommit 9c5d240983aaf4a69ccf5efb59ee36934ab1fef8[m
+Author: kaleb wondimu <kalebwondimu33@gmail.com>
+Date:   Fri May 19 14:02:59 2023 +0300
+
+    create connection to the data base
+
+[33mcommit 14218643f32b5662fdf6bb9b70a8a0ac3d58628e[m
+Author: kaleb wondimu <kalebwondimu33@gmail.com>
+Date:   Fri May 19 12:02:00 2023 +0300
+
+    creating registor form
+
+[33mcommit 2854d0ee8c7858f1d6780ad91f1af2e6ea6fe371[m
+Author: kaleb wondimu <kalebwondimu33@gmail.com>
+Date:   Fri May 19 11:30:20 2023 +0300
+
+    creating index.php file
