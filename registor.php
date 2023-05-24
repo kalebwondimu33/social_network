@@ -17,6 +17,12 @@ require "includes/form_handlers/login_handler.php";
 <body>
    <div class="wrapper">
       <div class="login_box">
+         <div class="login_header">
+            <h1>Friend Link!</h1>
+            Login or sign up below!
+
+
+         </div>
             <form action="registor.php" method="POST">
                <input type="email" name="log_email" placeholder="Email Address" value="<?php
                if(isset($_SESSION['log_email'])){
