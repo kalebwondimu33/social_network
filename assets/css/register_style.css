@@ -57,3 +57,26 @@ body{
     text-shadow: #73B6E2 0.5px 0.5px 0px;
     
 }
+input[type="submit"]{
+    font-family:'Bellota-BoldItalic',sans-serif;
+    background-color: #3498db;
+    border:1px solid #3498db;
+    border-radius: 3px;
+    margin: 5px 0 10px 0;
+    padding: 5px 10px 5px 10px;
+    color: #2c6c96;
+    text-shadow: #73B6E2 0.5px 0.5px 0px;
+    font-size: 100%;
+    
+}
+input[type="text"],input[type="password"],input[type="email"]{
+    border: 1px solid #e5e5e5;
+    margin-top:5px;
+    width:70%;
+    height: 35px;
+    margin-bottom: 10px;
+    padding-left: 5px; /*this is for space between the placeholder and the border */
+}
+input[type="text"]:hover,input[type="password"]:hover,input[type="email"]:hover{
+    border-color: #3498db;;
+}
