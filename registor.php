@@ -17,6 +17,19 @@ require "includes/form_handlers/login_handler.php";
     <script src="assets/js/register.js"></script>
 </head>
 <body>
+   <?php
+   if (isset($_POST['reg_button'])){
+      echo '
+      <script>
+      $(document).ready(function(event){
+           $("#first").hide();
+           $("#second").show();
+      });
+      </script>
+      ';
+   }
+
+   ?>
    <div class="wrapper">
       <div class="login_box">
          <div class="login_header">
@@ -70,7 +83,7 @@ require "includes/form_handlers/login_handler.php";
             <?php
             if (in_array("Email already in use <br>",$error_array))echo "Email already in use <br>";
             else if(in_array("Invalid format <br>",$error_array))echo "Invalid format <br>";
-            else if(in_array("Emails don't match",$error_array))echo "Emails don't match<br>";
+            else if(in_array("Emails don't match<br>",$error_array))echo "Emails don't match<br>";
             ?>
             
             <input type="password" name="reg_password" placeholder="Enter password" required>
