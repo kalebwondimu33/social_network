@@ -13,6 +13,8 @@ require "includes/form_handlers/login_handler.php";
     <meta charset="UTF-8">
     <title>Registor</title>
     <link rel="stylesheet" href="assets/css/register_style.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+    <script src="assets/js/register.js"></script>
 </head>
 <body>
    <div class="wrapper">
@@ -20,21 +22,23 @@ require "includes/form_handlers/login_handler.php";
          <div class="login_header">
             <h1>Friend Link!</h1>
             Login or sign up below!
-
-
          </div>
+         <div id="first">
             <form action="registor.php" method="POST">
-               <input type="email" name="log_email" placeholder="Email Address" value="<?php
-               if(isset($_SESSION['log_email'])){
-               echo $_SESSION['log_email'];
-               };?>" required>
-               <br>
-               <input type="password" name="log_password" placeholder="password">
-               <br>
-               <input type="submit" name="log_button" value="Login" required>
-               <br>
-            <?php if(in_array("Email or passowrd was incorrect<br>",$error_array))echo "Email or passowrd was incorrect<br>";?>
-            </form>
+                  <input type="email" name="log_email" placeholder="Email Address" value="<?php
+                  if(isset($_SESSION['log_email'])){
+                  echo $_SESSION['log_email'];
+                  };?>" required>
+                  <br>
+                  <input type="password" name="log_password" placeholder="password">
+                  <br>
+                  <input type="submit" name="log_button" value="Login" required>
+                  <br>
+                  <a href="" id="signup" class="signup">Create new Account</a>
+               <?php if(in_array("Email or passowrd was incorrect<br>",$error_array))echo "Email or passowrd was incorrect<br>";?>
+               </form>
+         </div>
+         <div id="second">
          <form action="registor.php" method="post">
             <input type="text" name="reg_fname" placeholder="First Name" value="<?php
                if(isset($_SESSION['reg_fname'])){
@@ -80,10 +84,13 @@ require "includes/form_handlers/login_handler.php";
             ?>
             <input type="submit" name="reg_button" value="Register" required>
             <br>
+            <a href="" id="signin" class="signin">Already have an account? Sign in here!</a>
             <?php
             if (in_array("<span style='color:#14c800;'>Registered successfully! Go head and login!</span><br>",$error_array))echo "<span style='color:#14c800;'>Registered successfully! Go head and login!</span><br>";
             ?>
          </form> 
+         </div>
+         
       </div>
   </div> 
 </body>
