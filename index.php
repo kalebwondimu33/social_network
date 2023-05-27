@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>FriendLink</title>
-</head>
-<body>
+<?php
+include("includes/header.php");
+session_destroy();
+?>
     <h1>login successfully</h1>
     <h1>This is the home page </h1>
 </body>
