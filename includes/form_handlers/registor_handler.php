@@ -87,10 +87,10 @@ if (isset($_POST['reg_button'])){
   //profile picture assignment
   $random=rand(1,2);
   if ($random==1){
-    $profile_pic="assets\images\profile_pic\default/head_deep_blue.png";
+    $profile_pic="assets/images/profile_pic/default/head_deep_blue.png";
   }
   elseif($random==2){
-    $profile_pic="assets\images\profile_pic\default/head_green_sea.png";
+    $profile_pic="assets/images/profile_pic/default/head_green_sea.png";
   }
   $query=mysqli_query($con,"INSERT INTO users VALUES('','$fname','$lname','$username','$email','$password','$date','$profile_pic','0','0','no',',')");
   array_push($error_array,"<span style='color:#14c800;'>Registered successfully! Go head and login!</span><br>");
