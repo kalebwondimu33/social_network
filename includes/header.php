@@ -2,6 +2,8 @@
 require 'config/config.php';
 if(isset($_SESSION['username'])){
     $userLoggedIn=$_SESSION['username'];
+    $user_detail_query=mysqli_query($con,"SELECT * FROM users WHERE username='$userLoggedIn'");
+    $user=mysqli_fetch_array($user_detail_query);
     
 }else{
     header("Location:registor.php");
@@ -19,11 +21,23 @@ if(isset($_SESSION['username'])){
     <!-- javascript file -->
     <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/aaa1dd84b2.js" crossorigin="anonymous"></script>
 </head>
 <body>
    <div class="top_bar">
        <div class="logo">
           <a href="index.php">Freind Link!</a>
        </div>
+       <nav>
+        <a href="#">
+            <?php echo $user['fname']?>
+        </a>
+       <a href="index.php"><i class="fa fa-home fa-lg"></i></a>
+        <a href="#"><i class="fa-solid fa-envelope"></i></a>
+        <a href="#"><i class="fa-regular fa-bell"></i></a>
+        <a href=""><i class="fa-users fg-lg"></i></a>
+        <a href="#"><i class="fa-sharp fa-light fa-gear"></i></a>
+       </nav>
+
    </div>
    
