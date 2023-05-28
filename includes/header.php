@@ -35,9 +35,10 @@ if(isset($_SESSION['username'])){
        <a href="index.php"><i class="fa fa-home fa-lg"></i></a>
         <a href="#"><i class="fa-solid fa-envelope"></i></a>
         <a href="#"><i class="fa-regular fa-bell"></i></a>
-        <a href=""><i class="fa-users fg-lg"></i></a>
-        <a href="#"><i class="fa-sharp fa-light fa-gear"></i></a>
+        <a href=""><i class="fa-solid fa-users"></i></a>
+        <a href="#"><i class="fa-solid fa-gear"></i></a>
        </nav>
 
    </div>
+   <div class="wrapper">
    
