@@ -79,3 +79,44 @@ nav a:hover{
     border-radius: 5px;
     margin-right: 5px;
 }
+.main_column{
+    float: right;
+    width: 70%;
+    z-index: -1;
+    min-width: 160px;
+    height: 145px;
+}
+.post_form{
+    width: 100%;
+}
+.post_form textarea{
+    width: 81%;
+    height: 60px;
+    border-radius: 3px;
+    margin-right: 5px;
+    border:1px solid #D3D3D3;
+    font-size: 12px;
+    padding: 5px;
+}
+textarea:focus{
+    outline: 0px; /*remove the outline when the curser come to the text area */
+}
+.post_form input[type="submit"]{
+    width: 11%;
+    height: 60px;
+    border:none;
+    border-radius: 3px;
+    background-color: #3498db;
+    font-family: 'Bellota-BoldItalic',sans-serif;
+    color: #1E75CA;
+    text-shadow: #73B6E2 0.5px 0.5px 0px;
+    font-size: 90%;
+    position: absolute;
+    outline: 0px;
+    margin: 0px;
+    
+}
+.post_form input[type="submit"]:active{
+    padding: 5px 4px 4px 5px;
+    
+}
