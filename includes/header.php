@@ -29,7 +29,7 @@ if(isset($_SESSION['username'])){
           <a href="index.php">Freind Link!</a>
        </div>
        <nav>
-        <a href="#">
+        <a href="<?php echo $userLoggedIn?>">
             <?php echo $user['fname']?>
         </a>
        <a href="index.php"><i class="fa fa-home fa-lg"></i></a>

@@ -74,7 +74,7 @@ if (isset($_POST['reg_button'])){
   if(empty($error_array)){
     $password=md5($password);//encript the password before sending to the database
     //generate username by concatentaing first name and last name
-    $username=strtolower($fname." " .$lname);
+    $username=strtolower($fname."_".$lname);
     $check_username_query=mysqli_query($con,"SELECT username FROM users WHERE username='$username' ");
     $i=0;
     //if username exist add number to username
