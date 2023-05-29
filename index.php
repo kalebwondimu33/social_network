@@ -3,9 +3,9 @@ include("includes/header.php");
 
 ?>
     <div class="user_detail column">
-       <a href=""><img src="<?php echo $user['profile_pic'];?>"></a>
+       <a href="<?php echo $userLoggedIn?>"><img src="<?php echo $user['profile_pic'];?>"></a>
        <div class="user_details_left_right">
-        <a href="#">
+        <a href="<?php echo $userLoggedIn?>">
             <?php echo $user['fname']." ".$user['lname'];
             ?>
         </a>
