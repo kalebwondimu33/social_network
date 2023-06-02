@@ -30,6 +30,25 @@ class Post{
         $update_query=mysqli_query($this->con,"UPDATE users SET num_posts='$num_posts' WHERE username='$added_by'");
        }
       }
+      public function loadPostFriends(){
+        $str="";//string to return 
+        $data=mysqli_query($this->con,"SELECT * FROM posts WHERE deleted='no' ORDER BY id DESC");
+        while ($row=mysqli_fetch_array($data)){
+          $id=$row['id'];
+          $body=$row['body'];
+          $added_by=$row['added_by'];
+          $date_time=$row['date_added'];
+          //prepare user_to string so it can be included even if not posted to a user
+          if ($row['user_to']=="none"){
+            $user_to="";
+          }
+          else{
+            $user_to_obj=new User($this->con,$row['user_to']);
+            $user_to_name=$user_to_obj->getFirstAndLastName();
+            $user_to="<a href-'".$row['user_to']."'>".$user_to_name."</a";
+          }
+        }
+            }
 }
 
 
