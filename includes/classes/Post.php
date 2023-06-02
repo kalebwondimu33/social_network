@@ -45,19 +45,82 @@ class Post{
           else{
             $user_to_obj=new User($this->con,$row['user_to']);
             $user_to_name=$user_to_obj->getFirstAndLastName();
-            $user_to="<a href-'".$row['user_to']."'>".$user_to_name."</a";
+            $user_to = "<a href='".$row['user_to']."'>".$user_to_name."</a>";
           }
           //check if user who posted has their accound closed"
           $added_by_obj=new User($this->con,$added_by);
           if($added_by_obj->isClosed()){
             continue;
           }
-          else{
-            $user_detail_query=mysqli_query($this->con,"SELECT fname,lname,profile_pic FROM username='$added_by'");
-            $user_row=mysqli_fetch_array($user_detail_query);
+          $user_detail_query=mysqli_query($this->con,"SELECT fname,lname,profile_pic FROM username='$added_by'");
+          $user_row=mysqli_fetch_array($user_detail_query);
+          //time frame
+          $date_time_now=date("y-m-d H:i:s");
+          $start_date=new DateTime($date_time);//time of post
+          $end_date=new DateTime($date_time_now);//current time
+          $interval=$start_date->diff($end_date);//diffrence between dates
+          if($interval->y>=1){
+            if($interval->y==1){
+              $time_message = $interval->y . " years ago";//one year ago
+            }
+            else{
+              $time_message=$interval->y." years ago";//1+ year ago
+            }
           }
+          elseif($interval->m>=1){
+            if($interval->d==0){
+              $days=" ago";
+            }
+            elseif($interval->d==1){
+              $days=$interval->d. " day ago";
+            }
+            else{
+              $days=$interval->d." days ago";
+            }
+            if($interval->m==1){
+              $time_message=$interval->m. " month".$days;
+            }
+            else{
+              $time_message=$interval->m." month".$days;
+            }
+          }
+          elseif($interval->d>=1){
+            if($interval->d==1){
+              $days=" Yesterday";
+            }
+            else{
+              $days=$interval->d." days ago";
+            }
+
+          }
+          elseif($interval->h>=1){
+            if($interval->h==1){
+              $days=$interval->h. " hour ago";
+            }
+            else{
+              $time_message=$interval->h." hours ago";
+            }
+          }
+          elseif($interval->i>=1){
+            if($interval->i==1){
+              $time_message=$interval->i." minute ago";
+            }
+            else{
+              $time_message=$interval->i." minutes ago";
+            }
+          }
+          else{
+            if($interval->s<30){
+              $time_message=" just now";
+            }
+            else{
+              $time_message=$interval->s." second ago";
+            }
+          }
+          
         }
             }
+            
 }
 
 
