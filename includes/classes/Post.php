@@ -47,6 +47,15 @@ class Post{
             $user_to_name=$user_to_obj->getFirstAndLastName();
             $user_to="<a href-'".$row['user_to']."'>".$user_to_name."</a";
           }
+          //check if user who posted has their accound closed"
+          $added_by_obj=new User($this->con,$added_by);
+          if($added_by_obj->isClosed()){
+            continue;
+          }
+          else{
+            $user_detail_query=mysqli_query($this->con,"SELECT fname,lname,profile_pic FROM username='$added_by'");
+            $user_row=mysqli_fetch_array($user_detail_query);
+          }
         }
             }
 }
