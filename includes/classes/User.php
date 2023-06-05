@@ -2,12 +2,21 @@
 class User{
       private $user;
       private $con;
-      public function __construct($con,$user)
-      {
-        $this->con=$con;
-        $user_details_query=mysqli_query($con,"SELECT * FROM users WHERE username='$user'");
-        $this->user=mysqli_fetch_array($user_details_query);
-      }
+      public function __construct($con, $user)
+       {
+          $this->con = $con;
+          if (!empty($user)) {
+              $user_details_query = mysqli_query($con, "SELECT * FROM users WHERE username='$user'");
+              if ($user_details_query && mysqli_num_rows($user_details_query) > 0) {
+                  $this->user = mysqli_fetch_array($user_details_query);
+              } else {
+                  $this->user = array();
+              }
+          } else {
+              $this->user = array();
+          }
+       }
+
       public function getUsername(){
         return $this->user['username'];
       }
