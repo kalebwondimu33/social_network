@@ -68,99 +68,102 @@ class Post{
             if($added_by_obj->isClosed()){
               continue;
             }
-            if($num_iterations++ < $start)
-              continue; 
+            $user_logged_obj=new User($this->con,$userLoggedIn);
+            if ($user_logged_obj->isFriend($added_by)){
+              if($num_iterations++ < $start)
+                continue; 
 
 
-            //Once 10 posts have been loaded, break
-            if($count > $limit) {
-              break;
-            }
-            else {
-              $count++;
-            }
-            $user_detail_query=mysqli_query($this->con,"SELECT fname,lname,profile_pic FROM users WHERE username='$added_by'");
-            $user_row=mysqli_fetch_array($user_detail_query);
-            $first_name=$user_row['fname'];
-            $last_name=$user_row['lname'];
-            $profile_pic=$user_row['profile_pic'];
-            //time frame
-            $date_time_now=date("y-m-d H:i:s");
-            $start_date=new DateTime($date_time);//time of post
-            $end_date=new DateTime($date_time_now);//current time
-            $interval=$start_date->diff($end_date);//diffrence between dates
-            if($interval->y>=1){
-              if($interval->y==1){
-                $time_message = $interval->y . " years ago";//one year ago
+              //Once 10 posts have been loaded, break
+              if($count > $limit) {
+                break;
               }
-              else{
-                $time_message=$interval->y." years ago";//1+ year ago
+              else {
+                $count++;
               }
-            }
-            elseif($interval->m>=1){
-              if($interval->d==0){
-                $days=" ago";
+              $user_detail_query=mysqli_query($this->con,"SELECT fname,lname,profile_pic FROM users WHERE username='$added_by'");
+              $user_row=mysqli_fetch_array($user_detail_query);
+              $first_name=$user_row['fname'];
+              $last_name=$user_row['lname'];
+              $profile_pic=$user_row['profile_pic'];
+              //time frame
+              $date_time_now=date("y-m-d H:i:s");
+              $start_date=new DateTime($date_time);//time of post
+              $end_date=new DateTime($date_time_now);//current time
+              $interval=$start_date->diff($end_date);//diffrence between dates
+              if($interval->y>=1){
+                if($interval->y==1){
+                  $time_message = $interval->y . " years ago";//one year ago
+                }
+                else{
+                  $time_message=$interval->y." years ago";//1+ year ago
+                }
               }
-              elseif($interval->d==1){
-                $days=$interval->d. " day ago";
+              elseif($interval->m>=1){
+                if($interval->d==0){
+                  $days=" ago";
+                }
+                elseif($interval->d==1){
+                  $days=$interval->d. " day ago";
+                }
+                else{
+                  $days=$interval->d." days ago";
+                }
+                if($interval->m==1){
+                  $time_message=$interval->m. " month".$days;
+                }
+                else{
+                  $time_message=$interval->m." month".$days;
+                }
               }
-              else{
-                $days=$interval->d." days ago";
-              }
-              if($interval->m==1){
-                $time_message=$interval->m. " month".$days;
-              }
-              else{
-                $time_message=$interval->m." month".$days;
-              }
-            }
-            elseif($interval->d>=1){
-              if($interval->d==1){
-                $days=" Yesterday";
-              }
-              else{
-                $days=$interval->d." days ago";
-              }
-              $time_message = $days;
+              elseif($interval->d>=1){
+                if($interval->d==1){
+                  $days=" Yesterday";
+                }
+                else{
+                  $days=$interval->d." days ago";
+                }
+                $time_message = $days;
 
-            }
-            elseif($interval->h>=1){
-              if($interval->h==1){
-                $days=$interval->h. " hour ago";
+              }
+              elseif($interval->h>=1){
+                if($interval->h==1){
+                  $days=$interval->h. " hour ago";
+                }
+                else{
+                  $time_message=$interval->h." hours ago";
+                }
+              }
+              elseif($interval->i>=1){
+                if($interval->i==1){
+                  $time_message=$interval->i." minute ago";
+                }
+                else{
+                  $time_message=$interval->i." minutes ago";
+                }
               }
               else{
-                $time_message=$interval->h." hours ago";
+                if($interval->s<30){
+                  $time_message=" just now";
+                }
+                else{
+                  $time_message=$interval->s." second ago";
+                }
               }
-            }
-            elseif($interval->i>=1){
-              if($interval->i==1){
-                $time_message=$interval->i." minute ago";
-              }
-              else{
-                $time_message=$interval->i." minutes ago";
-              }
-            }
-            else{
-              if($interval->s<30){
-                $time_message=" just now";
-              }
-              else{
-                $time_message=$interval->s." second ago";
-              }
-            }
-            $str.="<div class='status_post'>
-                  <div class='post_profile_pic'>
-                    <img src='$profile_pic' width='50'>
-                  </div>
-                  <div class='posted_by' style='color:#ACACAC;'>
-                  <a href='$added_by'>$first_name $last_name</a>$user_to &nbsp;&nbsp;&nbsp;&nbsp;$time_message
-                  </div>
-                  <div id='post_body'>
-                  $body
-                  <br>
-                  </div>
-                  </div>
-                  <hr>";
+              $str.="<div class='status_post'>
+                    <div class='post_profile_pic'>
+                      <img src='$profile_pic' width='50'>
+                    </div>
+                    <div class='posted_by' style='color:#ACACAC;'>
+                    <a href='$added_by'>$first_name $last_name</a>$user_to &nbsp;&nbsp;&nbsp;&nbsp;$time_message
+                    </div>
+                    <div id='post_body'>
+                    $body
+                    <br>
+                    </div>
+                    </div>
+                    <hr>";
+                }
             
           }
           if($count > $limit) {
