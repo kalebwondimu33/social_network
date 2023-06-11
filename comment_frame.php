@@ -74,6 +74,7 @@
 			$posted_by = $comment['posted_by'];
 			$date_added = $comment['date_added'];
 			$removed = $comment['removed'];
+			
 
 			//Timeframe
 			$date_time_now = date("Y-m-d H:i:s");
