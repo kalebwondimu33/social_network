@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-    <link rel="stylesheet" href="assets/css/style.css">
-</head>
-<body>
-    <?php
+<?php
     require 'config/config.php';
     include("includes/classes/User.php");
     include("includes/classes/Post.php");
@@ -18,7 +10,22 @@
     }else{
         header("Location:registor.php");
     }
-    ?>
+ ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+	<style>
+		* {
+			font-size: 12px;
+			font-family: Arial, Helvetica, sans-serif;
+		}
+	</style>
     <script>
 		function toggle() {
 			var element = document.getElementById("comment_section");
