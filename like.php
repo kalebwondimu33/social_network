@@ -19,6 +19,18 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+    <style>
+        *{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        body{
+            background-color: #fff;
+        }
+        form{
+            position:absolute;
+            top: 0;
+        }
+    </style>
     <?php
     //Get id of post
     $post_id = 0;
@@ -60,17 +72,17 @@
    $num_rows=mysqli_num_rows($check_query);
    if($num_rows>0){
     echo '<form action="like.php?post_id=' . $post_id . '"  method="POST">
-    <input type="submit" class="comment_like" name="unlike_button" value="unlike">
+    <input type="submit" class="comment_like" name="unlike_button" value="UnLike">
     <div class="like_value">
-       '.$total_likes .'Likes
+       '.$total_likes .' Likes
     </div>
     </form>
     ';
    }else{
     echo '<form action="like.php?post_id=' . $post_id . '" method="POST">
-    <input type="submit" class="comment_like" name="like_button" value="like">
+    <input type="submit" class="comment_like" name="like_button" value="Like">
     <div class="like_value">
-       '.$total_likes .'Likes
+       '.$total_likes .' Likes
     </div>
     </form>
     ';
