@@ -39,6 +39,13 @@ class User{
         return $row['profile_pic'];
 
       }
+      public function getFriendArray(){
+        $username=$this->user['username'];
+        $query=mysqli_query($this->con,"SELECT friend_array FROM users WHERE username='$username'");
+        $row=mysqli_fetch_array($query);
+        return $row['friend_array'];
+
+      }
       
       public function isClosed()
       { 
