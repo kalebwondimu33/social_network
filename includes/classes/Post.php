@@ -61,7 +61,7 @@ class Post{
             else{
               $user_to_obj=new User($this->con,$row['user_to']);
               $user_to_name=$user_to_obj->getFirstAndLastName();
-              $user_to = "to <a href='".$row['user_to']."'>".$user_to_name."</a>";
+              $user_to = " to <a href='".$row['user_to']."'>".$user_to_name."</a>";
             }
             //check if user who posted has their accound closed"
             $added_by_obj=new User($this->con,$added_by);
