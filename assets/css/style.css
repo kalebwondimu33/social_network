@@ -201,7 +201,7 @@ textarea:focus{
     top: -10px;
     max-width: 17%;
     min-width: 130px;
-    height: 700px;
+    height: 1400px;
     float: left;
     position: relative;
     background-color:#37B0E9;
@@ -281,4 +281,10 @@ textarea:focus{
     border-radius: 4px;
     right: -15px;
     position: relative;
+}
+.profile_main_column{
+    min-width: 675px;
+    float: left;
+    width: 70%;
+    z-index: -1;
 }
