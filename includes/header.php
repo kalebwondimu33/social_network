@@ -1,5 +1,6 @@
 <?php
 require 'config/config.php';
+include ("includes/classes/message.php");
 if(isset($_SESSION['username'])){
     $userLoggedIn=$_SESSION['username'];
     $user_detail_query=mysqli_query($con,"SELECT * FROM users WHERE username='$userLoggedIn'");

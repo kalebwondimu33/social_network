@@ -1,4 +1,7 @@
 <?php
+include("includes/header.php");
+include("includes/classes/Post.php");
+include("includes/classes/User.php");
 class Message{
       private $user_obj;
       private $con;
