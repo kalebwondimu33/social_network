@@ -1,7 +1,7 @@
 <?php
 include("includes/header.php");
 include("includes/classes/User.php");
-include("includes/classes/Post.php";)
+
 $message_obj=new Message($con,$userLoggedIn);
 if(isset($_GET['u'])){
     $user_to = $_GET['u'];
