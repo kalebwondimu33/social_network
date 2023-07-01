@@ -57,7 +57,7 @@ if(isset($_POST['post_message'])){
                 echo "<div class='results'></div>";
             }
             else{
-                echo "<textarea name='message_body' id='message_textarea' placehodler='write your message...'></textarea>";
+                echo "<textarea name='message_body' id='message_textarea' placeholder='write your message...'></textarea>";
                 echo "<input type = 'submit' name='post_message' class='info' id='message_submit' value='send'>";
             }
             ?>
