@@ -14,6 +14,13 @@ if(isset($_GET['u'])){
 if($user_to != "new"){
     $user_to_obj = new User($con,$user_to);
 }
+if(isset($_POST['post_message'])){
+    if(isset($_POST['message_body'])){
+        $body=mysqli_real_escape_string($con,$_POST['message_body']);
+        $date=date("y-m-d H:i:s");
+        $message_obj->sendMessage($user_to,$body,$date);
+    }
+}
 ?>
 <div class="user_detail column">
        <a href="<?php echo $userLoggedIn?>"><img src="<?php echo $user['profile_pic'];?>"></a>
@@ -36,7 +43,7 @@ if($user_to != "new"){
     }
     ?>
     <div  class="loaded_messages">
-        <form action="" method="">
+        <form action="" method="POST">
             <?php
             if($user_to == "new"){
                 echo "select the friend you would like to message <br><br>";

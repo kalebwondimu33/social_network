@@ -23,5 +23,12 @@ class Message{
             return $user_from;
         }
       }
+      public function sendMessage($user_to,$body,$date){
+        if($body!=""){
+          $userLoggedIn = $this->user_obj->getUsername();
+          $query=mysqli_query($this->con,"INSERT INTO messages VALUES ('','$user_to','$userLoggedIn','$body','$date','no','no','no')");
+        }
+
+      }
     }
     ?>
