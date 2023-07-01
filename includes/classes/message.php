@@ -30,5 +30,12 @@ class Message{
         }
 
       }
+      public function getMessages($otherUser){
+        $userLoggedIn = $this->user_obj->getUsername();
+        $data="";
+        $query=mysqli_query($this->con,"UPDATE messages SET opened='yes' WHERE user_to='$userLoggedIn' AND user_from='$otherUser'");
+        $get_messages_query=mysqli_query($this->con,"SELECT * FROM mesages WHERE (user_to='$userLoggedIn' AND user_from='$otherUser')OR (user_from='$userLoggedIn' AND user_to='$otherUser')");
+
+      }
     }
     ?>
