@@ -22,6 +22,8 @@ if(isset($_POST['post_message'])){
     }
 }
 ?>
+
+
 <div class="user_detail column">
        <a href="<?php echo $userLoggedIn?>"><img src="<?php echo $user['profile_pic'];?>"></a>
        <div class="user_details_left_right">
@@ -34,8 +36,10 @@ if(isset($_POST['post_message'])){
         echo "Post:".$user['num_posts']."<br>";
         echo "Likes:".$user['num_likes'];
         ?>
-       </div>
 </div>
+</div>
+
+
 <div class="main_column column" id="main_column">
     <?php
     if($user_to != "new"){
@@ -63,14 +67,17 @@ if(isset($_POST['post_message'])){
             ?>
         </form>
 
-    </div>
-    <script>
-        var div=document.getElementById("scroll_messages");
-        div.scrollTop=div.scrollHeight;
-    </script>
-
 </div>
-<div class="user_details column" id="conversations">
+</div>
+
+<script>
+    var div=document.getElementById("scroll_messages");
+    div.scrollTop=div.scrollHeight;
+</script>
+
+
+
+<div class="user_detail column" id="conversations">
         <h4>Conversations</h4>
         <div class="loaded_conversations">
             <?php echo $message_obj->getConvos();?>
@@ -79,3 +86,4 @@ if(isset($_POST['post_message'])){
         <a href="messages.php?u=new">New Message</a>
 
 </div>
+
