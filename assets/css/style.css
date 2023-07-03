@@ -380,3 +380,6 @@ textarea:focus{
     background-color: transparent;
     color: #1E96CA;
 }
+.tab-content{
+    margin-top: 25px;
+}
