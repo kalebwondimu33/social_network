@@ -38,20 +38,35 @@ if(isset($_SESSION['username'])){
        <div class="logo">
           <a href="index.php">Freind Link!</a>
        </div>
+
+       <div class="search">
+        <form action="search.php" method="GET" name="search_form">
+            <input type="text" onkeyup="getLiveSearchUsers(this.value,'<?php echo $userLoggedIn;?>')" name="q" placeholder="Search..." autocomplete="off" id="search_text_input">
+            <div class="button_holder">
+              <img src="assets/images/icons/magnifying_glass.png" >
+            </div>
+        </form>
+        <div class="search_results">
+        </div>
+        <div class="search_results_footer_empty"> 
+
+        </div>
+
+
+       </div>
        <nav>
         <a href="<?php echo $userLoggedIn?>">
             <?php echo $user['fname']?>
         </a>
        <a href="index.php"><i class="fa fa-home fa-lg"></i></a>
        <a href="messages.php?u=new"><i class="fa-solid fa-envelope"></i></a>
-        <a href="#"><i class="fa-regular fa-bell"></i></a>
+        <!-- <a href="#"><i class="fa-regular fa-bell"></i></a> -->
         <a href="requests.php"><i class="fa-solid fa-users"></i></a>
-        <a href="#"><i class="fa-solid fa-gear"></i></a>
+        <a href="upload.php"><i class="fa-solid fa-gear"></i></a>
         <a href="includes/handlers/logout.php"><i class="fa-solid fa-right-from-bracket"></i></a>
        </nav>
-       <div class="dropdown_data_window"></div>
-       <input type="hidden" id="dropdown_data_type" value="">
-
+       <!-- <div class="dropdown_data_window"></div>
+       <input type="hidden" id="dropdown_data_type" value=""> -->
    </div>
    <div class="wrapper">
    
