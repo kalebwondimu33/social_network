@@ -43,12 +43,14 @@ if(isset($_SESSION['username'])){
             <?php echo $user['fname']?>
         </a>
        <a href="index.php"><i class="fa fa-home fa-lg"></i></a>
-        <a href="#"><i class="fa-solid fa-envelope"></i></a>
+       <a href="messages.php?u=new"><i class="fa-solid fa-envelope"></i></a>
         <a href="#"><i class="fa-regular fa-bell"></i></a>
         <a href="requests.php"><i class="fa-solid fa-users"></i></a>
         <a href="#"><i class="fa-solid fa-gear"></i></a>
         <a href="includes/handlers/logout.php"><i class="fa-solid fa-right-from-bracket"></i></a>
        </nav>
+       <div class="dropdown_data_window"></div>
+       <input type="hidden" id="dropdown_data_type" value="">
 
    </div>
    <div class="wrapper">
